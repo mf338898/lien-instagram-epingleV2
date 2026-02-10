@@ -17,9 +17,9 @@ export function InvestToolsBanner() {
   return (
     <section className="w-full py-12 md:py-16">
       <div className="relative w-full overflow-visible rounded-none bg-gradient-to-r from-[#ff4b2b] via-[#ff416c] to-[#7b2cff] px-6 py-10 md:px-10 md:py-12 lg:px-14 lg:py-14">
-        <div className="relative z-10 flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
-          {/* Left column: text + CTA */}
-          <div className="max-w-xl md:basis-3/5">
+        <div className="relative z-10 flex flex-col items-center gap-6 text-center">
+          {/* Text + CTA */}
+          <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/80 md:text-sm">
               OUTILS POUR INVESTISSEURS
             </span>
@@ -40,8 +40,6 @@ export function InvestToolsBanner() {
             </button>
           </div>
 
-          {/* Right column: (mobile image removed) */}
-          <div className="mt-4 flex w-full justify-center md:mt-0 md:basis-2/5 md:justify-end" />
         </div>
 
         {/* Soft glow at the base of the banner */}

@@ -18,7 +18,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen bg-[radial-gradient(ellipse_at_center,_var(--hero-center)_0%,_var(--hero-edge)_70%)] px-4 pb-16 pt-6 md:px-6 md:pb-20 lg:px-8"
+      className="min-h-screen lg:min-h-0 bg-[radial-gradient(ellipse_at_center,_var(--hero-center)_0%,_var(--hero-edge)_70%)] px-4 pb-16 pt-6 md:px-6 md:pb-20 lg:px-8"
       style={{ backgroundAttachment: "scroll" }}
     >
       {/* Navbar */}
