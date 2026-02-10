@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "Vente maison Brest",
     "Formation immobilier",
   ],
+  icons: {
+    icon: "/ALV.svg",
+  },
   openGraph: {
     title: "Matthis Foveau | L'Immobilier autrement",
     description:
