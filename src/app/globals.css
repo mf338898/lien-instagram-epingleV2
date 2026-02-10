@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0d0614;
+  --foreground: #ededed;
+  /* Hero design system */
+  --hero-center: #1a0b2e;
+  --hero-edge: #0d0614;
+  --gradient-text-from: #ff2d92;
+  --gradient-text-via: #ff6b35;
+  --gradient-text-to: #ffc837;
+  --btn-gradient-from: #e11d48;
+  --btn-gradient-to: #7c3aed;
+  --btn-glow: rgba(225, 29, 72, 0.4);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-hero-center: var(--hero-center);
+  --color-hero-edge: var(--hero-edge);
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
