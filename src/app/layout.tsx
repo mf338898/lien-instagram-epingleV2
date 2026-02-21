@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -41,10 +40,6 @@ export default function RootLayout({
     <html lang="fr" className={inter.variable}>
       <body className="antialiased bg-white text-slate-900 font-sans leading-relaxed">
         {children}
-        <Script
-          src="https://expert.jestimo.com/widget-jwt/11bS969998ccc10509Xy547671v7P111"
-          strategy="afterInteractive"
-        />
         <Analytics />
       </body>
     </html>
