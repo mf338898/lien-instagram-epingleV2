@@ -106,9 +106,7 @@ export function HeroSection() {
                   />
                 </a>
                 <Link
-                  href="https://www.alvimmobilier.bzh/catalog/contact_us.php?form=1"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#estimation"
                   className="inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-8 py-4 text-center font-medium text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-slate-800 hover:shadow-xl sm:w-auto"
                 >
                   Estimer mon bien (Gratuit)

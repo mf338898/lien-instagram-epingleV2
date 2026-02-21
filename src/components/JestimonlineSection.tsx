@@ -1,9 +1,5 @@
 "use client";
 
-import Script from "next/script";
-
-const JESTIM_CONTAINER_ID = "jst__est_11bS969998ccc10509Xy547671v7P111";
-
 export function JestimonlineSection() {
   return (
     <section
@@ -22,13 +18,11 @@ export function JestimonlineSection() {
         </header>
 
         <div className="mt-12 flex justify-center">
-          <div
-            id={JESTIM_CONTAINER_ID}
-            className="min-h-[500px] h-[500px] w-full max-w-2xl"
-          />
-          <Script
-            src="https://expert.jestimo.com/widget-jwt/11bS969998ccc10509Xy547671v7P111"
-            strategy="afterInteractive"
+          <iframe
+            src="/jestimo-widget.html"
+            title="Estimation immobilière Jestimo"
+            className="min-h-[500px] h-[500px] w-full max-w-2xl border-0"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
           />
         </div>
       </div>

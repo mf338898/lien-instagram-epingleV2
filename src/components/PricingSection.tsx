@@ -11,6 +11,7 @@ const PRICING_CARDS = [
     priceSubtext: "",
     buttonStyle: "ghost" as const,
     buttonText: "Demander mon estimation",
+    buttonHref: "#estimation" as const,
     badge: null as string | null,
     features: [
       "Visite physique du bien (Pleyben & alentours)",
@@ -31,6 +32,7 @@ const PRICING_CARDS = [
     priceSubtext: "",
     buttonStyle: "gradient" as const,
     buttonText: "Vendre avec Matthis",
+    buttonHref: "https://www.alvimmobilier.bzh/catalog/contact_us.php?form=1" as const,
     badge: null as string | null,
     features: [
       "Reportage photo HDR & Visite Virtuelle",
@@ -52,6 +54,7 @@ const PRICING_CARDS = [
     priceSubtext: "",
     buttonStyle: "ghost" as const,
     buttonText: "Discuter de mon projet",
+    buttonHref: "#estimation" as const,
     badge: null as string | null,
     features: [
       "Accès à la formation 'Carré de la Rentabilité'",
@@ -150,9 +153,10 @@ export function PricingSection() {
                   {card.priceSubtext}
                 </p>
                 <Link
-                  href="https://www.alvimmobilier.bzh/catalog/contact_us.php?form=1"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={card.buttonHref}
+                  {...(card.buttonHref.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className={
                     card.buttonStyle === "gradient"
                       ? "mt-4 flex w-full justify-center rounded-lg bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] px-4 py-2.5 font-semibold text-white transition-opacity hover:opacity-90"
