@@ -1,30 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0d0614;
-  --foreground: #ededed;
-  /* Hero design system */
-  --hero-center: #1a0b2e;
-  --hero-edge: #0d0614;
-  --gradient-text-from: #ff2d92;
-  --gradient-text-via: #ff6b35;
-  --gradient-text-to: #ffc837;
-  --btn-gradient-from: #e11d48;
-  --btn-gradient-to: #7c3aed;
-  --btn-glow: rgba(225, 29, 72, 0.4);
+  --background: #ffffff;
+  --foreground: #0f172a;
+  /* Brand colors (Victor-style blue accent) */
+  --brand-100: #dbeafe;
+  --brand-600: #2563eb;
+  --brand-900: #1e3a8a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-hero-center: var(--hero-center);
-  --color-hero-edge: var(--hero-edge);
-  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --color-brand-100: var(--brand-100);
+  --color-brand-600: var(--brand-600);
+  --color-brand-900: var(--brand-900);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Custom scrollbar (design reference) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html {
+  scroll-padding-top: 5rem;
 }

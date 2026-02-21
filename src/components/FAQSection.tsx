@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Plus, Minus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FAQ_ITEMS: { id: number; question: string; answer: string }[] = [
@@ -101,56 +101,46 @@ export function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative px-4 py-16 md:px-6 md:py-20 lg:px-8"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, var(--hero-center) 0%, var(--hero-edge) 70%)",
-      }}
+      className="relative bg-slate-50 px-4 py-20 md:px-6 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
-          {/* Left column — sticky title + subtitle */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <h2 className="bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] bg-clip-text text-6xl font-bold text-transparent md:text-7xl lg:text-8xl">
+            <h2 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
               Questions Fréquentes
             </h2>
-            <p className="mt-6 text-lg text-slate-300 md:text-xl">
+            <p className="mt-6 text-lg text-slate-600 md:text-xl">
               Vendre est un métier. Voici pourquoi mes clients choisissent
               l&apos;exclusivité et la sérénité.
             </p>
           </div>
 
-          {/* Right column — accordions */}
-          <div className="space-y-5">
+          <div className="space-y-4">
             {FAQ_ITEMS.map((item) => {
               const isOpen = openIndex === item.id;
               return (
                 <div
                   key={item.id}
-                  className="overflow-hidden rounded-xl border border-white/10 bg-white/5"
+                  className="overflow-hidden rounded-xl border border-slate-200 bg-white transition-colors hover:border-slate-300"
                 >
                   <button
                     type="button"
                     onClick={() =>
                       setOpenIndex(isOpen ? null : item.id)
                     }
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left md:px-6 md:py-5"
+                    className="flex w-full list-none items-center justify-between gap-4 px-6 py-5 text-left"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${item.id}`}
                     id={`faq-trigger-${item.id}`}
                   >
-                    <span className="min-w-0 flex-1 font-semibold text-white">
+                    <span className="min-w-0 flex-1 font-medium text-slate-900">
                       {item.question}
                     </span>
                     <span
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-r from-pink-500 to-orange-500 text-white"
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center text-slate-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                       aria-hidden
                     >
-                      {isOpen ? (
-                        <Minus className="h-5 w-5" />
-                      ) : (
-                        <Plus className="h-5 w-5" />
-                      )}
+                      <ChevronDown className="h-5 w-5" />
                     </span>
                   </button>
                   <AnimatePresence initial={false}>
@@ -168,8 +158,8 @@ export function FAQSection() {
                         }}
                         className="overflow-hidden"
                       >
-                        <div className="border-t border-white/10 px-5 pb-4 pt-2 md:px-6 md:pb-5 md:pt-3">
-                          <p className="whitespace-pre-line text-base text-slate-300">
+                        <div className="border-t border-slate-200 px-6 pb-5 pt-2">
+                          <p className="whitespace-pre-line text-sm leading-relaxed text-slate-600">
                             {item.answer}
                           </p>
                         </div>

@@ -50,21 +50,15 @@ export function BonusesSection() {
   return (
     <section
       id="about"
-      className="relative px-4 py-16 md:px-6 md:py-20 lg:px-8"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, var(--hero-center) 0%, var(--hero-edge) 70%)",
-      }}
+      className="relative bg-slate-50 px-4 py-20 md:px-6 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <header className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Au-delà de l&apos;immobilier :{" "}
-            <span className="bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] bg-clip-text text-transparent">
-              Mon Univers
-            </span>
+            <span className="text-brand-600">Mon Univers</span>
           </h2>
-          <p className="mt-4 text-lg text-slate-300 sm:text-xl">
+          <p className="mt-4 text-lg text-slate-600 sm:text-xl">
             L&apos;immobilier est un métier de relations humaines. Découvrez
             mes projets, ma famille et les partenaires qui m&apos;inspirent au
             quotidien.
@@ -76,9 +70,9 @@ export function BonusesSection() {
             const content = (
               <article
                 key={bonus.title}
-                className="overflow-hidden rounded-xl border border-white/10 bg-purple-950/20 transition-opacity hover:opacity-95"
+                className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="relative aspect-video w-full overflow-hidden rounded-t-xl">
+                <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl">
                   <Image
                     src={bonus.image}
                     alt={bonus.alt}
@@ -88,11 +82,11 @@ export function BonusesSection() {
                   />
                 </div>
                 <div className="space-y-2 p-5 md:p-6">
-                  <h3 className="text-xl font-bold text-white md:text-2xl">
+                  <h3 className="text-xl font-semibold text-slate-900 md:text-2xl">
                     {bonus.title}
                   </h3>
-                  <p className="text-sm text-slate-400">{bonus.context}</p>
-                  <p className="text-sm text-gray-300 md:text-base">
+                  <p className="text-sm text-slate-500">{bonus.context}</p>
+                  <p className="text-sm text-slate-600 md:text-base">
                     {bonus.description}
                   </p>
                 </div>

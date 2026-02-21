@@ -7,7 +7,7 @@ const FOOTER_LINKS: { label: string; href: string }[] = [
   { label: "La Méthode", href: "#roadmap" },
   { label: "Honoraires", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
-  { label: "Formation", href: "#waitlist" },
+  { label: "Estimation", href: "#estimation" },
   { label: "Mon Univers", href: "#about" },
 ];
 
@@ -18,38 +18,32 @@ const SOCIAL_ICONS = [
 
 export function Footer() {
   return (
-    <footer
-      className="flex flex-col items-center px-4 py-16 md:py-20"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, var(--hero-center) 0%, var(--hero-edge) 70%)",
-      }}
-    >
-      <p className="text-center text-xl font-bold text-white md:text-2xl">
+    <footer className="flex flex-col items-center border-t border-slate-200 bg-white px-4 py-16 md:py-20">
+      <p className="text-center text-xl font-bold text-slate-900 md:text-2xl">
         Prêt à concrétiser votre projet ?
       </p>
       <Link
         href="https://www.alvimmobilier.bzh/catalog/contact_us.php?form=1"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 rounded-full bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-purple-600 px-8 py-3.5 text-lg font-bold text-white transition-opacity hover:opacity-90"
+        className="mt-4 inline-flex items-center justify-center rounded-xl bg-slate-900 px-8 py-4 font-medium text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-slate-800 hover:shadow-xl"
       >
         Me contacter
       </Link>
 
       <div className="mb-4 mt-14 flex justify-center">
         <Image
-          src="/ALV.svg"
+          src="/ALVLOGOV2.svg"
           alt="ALV Immobilier"
           width={80}
           height={80}
           className="h-16 w-16 object-contain md:h-20 md:w-20"
         />
       </div>
-      <p className="text-center text-sm font-medium text-white">
+      <p className="text-center text-sm font-medium text-slate-900">
         Matthis Foveau - ALV Immobilier
       </p>
-      <p className="mb-10 mt-1 text-center text-sm text-slate-400">
+      <p className="mb-10 mt-1 text-center text-sm text-slate-500">
         📍 Pleyben - Brest - Finistère
       </p>
 
@@ -59,7 +53,7 @@ export function Footer() {
             <li key={label}>
               <Link
                 href={href}
-                className="text-white transition-colors hover:text-white/80 hover:underline"
+                className="text-sm text-slate-500 transition-colors hover:text-slate-900"
               >
                 {label}
               </Link>
@@ -75,7 +69,7 @@ export function Footer() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white transition-opacity hover:opacity-70"
+            className="text-slate-500 transition-colors hover:text-slate-900"
             aria-label={label}
           >
             <Icon className="h-6 w-6" />
@@ -83,7 +77,7 @@ export function Footer() {
         ))}
       </div>
 
-      <p className="mt-10 text-sm text-gray-500">
+      <p className="mt-10 text-sm text-slate-500">
         © 2026 Matthis Foveau. Tous droits réservés.
       </p>
     </footer>

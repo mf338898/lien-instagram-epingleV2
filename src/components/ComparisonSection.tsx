@@ -22,30 +22,22 @@ export function ComparisonSection() {
   return (
     <section
       id="comparison"
-      className="relative px-4 py-16 md:px-6 md:py-20 lg:px-8"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, var(--hero-center) 0%, var(--hero-edge) 70%)",
-      }}
+      className="relative bg-slate-50 px-4 py-20 md:px-6 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <header className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Pourquoi passer par un{" "}
-            <span className="bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] bg-clip-text text-transparent">
-              humain
-            </span>{" "}
-            ?
+            <span className="text-brand-600">humain</span> ?
           </h2>
-          <p className="mt-2 text-lg text-slate-300">
+          <p className="mt-2 text-lg text-slate-600">
             La technologie c&apos;est bien, l&apos;expertise terrain
             c&apos;est mieux.
           </p>
         </header>
 
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {/* Other Courses (Villain) */}
-          <article className="rounded-xl border border-white/5 bg-slate-950/80 p-6 md:p-8">
+          <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors hover:border-slate-300 md:p-8">
             <div className="flex justify-center">
               <Image
                 src="/skull.png"
@@ -55,7 +47,7 @@ export function ComparisonSection() {
                 className="h-16 w-16 object-contain md:h-20 md:w-20"
               />
             </div>
-            <h3 className="mt-4 text-center text-xl font-bold text-white">
+            <h3 className="mt-4 text-center text-xl font-semibold text-slate-900">
               Estimations en Ligne (Robots)
             </h3>
             <ul className="mt-6 space-y-3" role="list">
@@ -64,39 +56,36 @@ export function ComparisonSection() {
                   <span className="shrink-0 text-red-500" aria-hidden>
                     <X className="h-5 w-5" />
                   </span>
-                  <span className="text-slate-300">{item}</span>
+                  <span className="text-slate-600">{item}</span>
                 </li>
               ))}
             </ul>
           </article>
 
-          {/* Content Creation Dojo (Hero) - gradient border */}
-          <div className="rounded-xl bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] p-[2px]">
-            <article className="flex h-full flex-col rounded-[10px] bg-purple-950/40 p-6 shadow-[inset_0_0_30px_rgba(255,45,146,0.08)] md:p-8">
-              <div className="flex justify-center">
-                <Image
-                  src="/ALV.svg"
-                  alt="ALV Immobilier"
-                  width={80}
-                  height={80}
-                  className="h-16 w-16 object-contain drop-shadow-[0_0_15px_rgba(255,45,146,0.6)] md:h-20 md:w-20"
-                />
-              </div>
-              <h3 className="mt-4 text-center text-xl font-bold text-white">
-                Expertise ALV immobilier
-              </h3>
-              <ul className="mt-6 flex-1 space-y-3" role="list">
-                {DOJO_ITEMS.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="shrink-0 text-orange-400" aria-hidden>
-                      <Check className="h-5 w-5" />
-                    </span>
-                    <span className="text-slate-300">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </div>
+          <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors hover:border-slate-300 md:p-8">
+            <div className="flex justify-center">
+              <Image
+                src="/ALVLOGOV2.svg"
+                alt="ALV Immobilier"
+                width={80}
+                height={80}
+                className="h-16 w-16 object-contain md:h-20 md:w-20"
+              />
+            </div>
+            <h3 className="mt-4 text-center text-xl font-semibold text-slate-900">
+              Expertise ALV immobilier
+            </h3>
+            <ul className="mt-6 flex-1 space-y-3" role="list">
+              {DOJO_ITEMS.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="shrink-0 text-brand-600" aria-hidden>
+                    <Check className="h-5 w-5" />
+                  </span>
+                  <span className="text-slate-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
 
         <div className="mt-10 flex justify-center">
@@ -104,7 +93,7 @@ export function ComparisonSection() {
             href="https://www.alvimmobilier.bzh/catalog/contact_us.php?form=1"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] px-8 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+            className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-8 py-4 font-medium text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-slate-800 hover:shadow-xl"
           >
             Demander mon estimation
           </Link>

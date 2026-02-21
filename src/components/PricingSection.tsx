@@ -102,11 +102,7 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="relative px-4 py-16 md:px-6 md:py-20 lg:px-8"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, var(--hero-center) 0%, var(--hero-edge) 70%)",
-      }}
+      className="relative bg-white px-4 py-16 md:px-6 md:py-20 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         <header className="mx-auto max-w-3xl text-center">

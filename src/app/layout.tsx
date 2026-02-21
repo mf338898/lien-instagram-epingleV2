@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Matthis Foveau | Immobilier & Investissement en Finistère",
@@ -15,7 +19,7 @@ export const metadata: Metadata = {
     "Formation immobilier",
   ],
   icons: {
-    icon: "/ALV.svg",
+    icon: "/ALVLOGOV2.svg",
   },
   openGraph: {
     title: "Matthis Foveau | L'Immobilier autrement",
@@ -34,16 +38,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className="antialiased bg-[#0d0614] text-[#ededed]"
-        style={{
-          background: "var(--background)",
-          color: "var(--foreground)",
-          fontFamily: "ui-sans-serif, system-ui, sans-serif",
-        }}
-      >
+    <html lang="fr" className={inter.variable}>
+      <body className="antialiased bg-white text-slate-900 font-sans leading-relaxed">
         {children}
+        <Script
+          src="https://expert.jestimo.com/widget-jwt/11bS969998ccc10509Xy547671v7P111"
+          strategy="afterInteractive"
+        />
         <Analytics />
       </body>
     </html>
