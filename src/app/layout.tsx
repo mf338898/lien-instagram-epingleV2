@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { JestimonlineModalProvider } from "@/contexts/JestimonlineModalContext";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -39,8 +40,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className={inter.variable}>
       <body className="antialiased bg-white text-slate-900 font-sans leading-relaxed">
-        {children}
-        <Analytics />
+        <JestimonlineModalProvider>
+          {children}
+          <Analytics />
+        </JestimonlineModalProvider>
       </body>
     </html>
   );

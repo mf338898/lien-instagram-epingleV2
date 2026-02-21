@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
 import { Check, X } from "lucide-react";
+import { useJestimonlineModal } from "@/contexts/JestimonlineModalContext";
 
 const OTHER_COURSES_ITEMS = [
   "Basé sur des moyennes, pas sur VOTRE bien",
@@ -19,6 +21,8 @@ const DOJO_ITEMS = [
 ] as const;
 
 export function ComparisonSection() {
+  const { openModal } = useJestimonlineModal();
+
   return (
     <section
       id="comparison"
@@ -89,12 +93,13 @@ export function ComparisonSection() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Link
-            href="#estimation"
+          <button
+            type="button"
+            onClick={openModal}
             className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-8 py-4 font-medium text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-slate-800 hover:shadow-xl"
           >
             Demander mon estimation
-          </Link>
+          </button>
         </div>
       </div>
     </section>

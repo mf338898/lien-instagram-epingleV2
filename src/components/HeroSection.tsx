@@ -1,13 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Sparkles, Star } from "lucide-react";
+import { useJestimonlineModal } from "@/contexts/JestimonlineModalContext";
 
-const NAV_LINKS: { label: string; href: string }[] = [
+const NAV_LINKS: { label: string; href: string | null }[] = [
   { label: "Accueil", href: "#hero" },
   { label: "La Méthode", href: "#roadmap" },
   { label: "Honoraires", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
-  { label: "Estimation", href: "#estimation" },
+  { label: "Estimation", href: null },
   { label: "Mon Univers", href: "#about" },
 ];
 
@@ -15,6 +18,8 @@ const NAV_LINKS: { label: string; href: string }[] = [
 const HERO_IMAGE_SRC = "/mon-image.svg";
 
 export function HeroSection() {
+  const { openModal } = useJestimonlineModal();
+
   return (
     <>
       {/* Navbar - fixed, design reference style */}
@@ -36,27 +41,48 @@ export function HeroSection() {
           <ul className="hidden items-center gap-8 lg:flex">
             {NAV_LINKS.map(({ label, href }) => (
               <li key={label}>
-                <Link
-                  href={href}
-                  className="whitespace-nowrap text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
-                >
-                  {label}
-                </Link>
+                {href ? (
+                  <Link
+                    href={href}
+                    className="whitespace-nowrap text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+                  >
+                    {label}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={openModal}
+                    className="whitespace-nowrap text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+                  >
+                    {label}
+                  </button>
+                )}
               </li>
             ))}
           </ul>
           {/* Mobile: simplified nav pill */}
           <div className="flex lg:hidden">
             <div className="flex flex-wrap items-center justify-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2">
-              {NAV_LINKS.slice(0, 3).map(({ label, href }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
-                >
-                  {label}
-                </Link>
-              ))}
+              {NAV_LINKS.slice(0, 3).map(({ label, href }) =>
+                href ? (
+                  <Link
+                    key={label}
+                    href={href}
+                    className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+                  >
+                    {label}
+                  </Link>
+                ) : (
+                  <button
+                    key={label}
+                    type="button"
+                    onClick={openModal}
+                    className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
+                  >
+                    {label}
+                  </button>
+                )
+              )}
             </div>
           </div>
         </div>
@@ -105,12 +131,13 @@ export function HeroSection() {
                     className="h-[4.8rem] w-48 object-contain"
                   />
                 </a>
-                <Link
-                  href="#estimation"
+                <button
+                  type="button"
+                  onClick={openModal}
                   className="inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-8 py-4 text-center font-medium text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-slate-800 hover:shadow-xl sm:w-auto"
                 >
                   Estimer mon bien (Gratuit)
-                </Link>
+                </button>
               </div>
 
               <a

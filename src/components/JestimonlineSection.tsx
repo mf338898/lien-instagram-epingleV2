@@ -1,6 +1,10 @@
 "use client";
 
+import { useJestimonlineModal } from "@/contexts/JestimonlineModalContext";
+
 export function JestimonlineSection() {
+  const { openModal } = useJestimonlineModal();
+
   return (
     <section
       id="estimation"
@@ -18,12 +22,13 @@ export function JestimonlineSection() {
         </header>
 
         <div className="mt-12 flex justify-center">
-          <iframe
-            src="/jestimo-widget.html"
-            title="Estimation immobilière Jestimo"
-            className="min-h-[500px] h-[500px] w-full max-w-2xl border-0"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-          />
+          <button
+            type="button"
+            onClick={openModal}
+            className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-8 py-4 font-medium text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-slate-800 hover:shadow-xl"
+          >
+            Lancer l&apos;estimation
+          </button>
         </div>
       </div>
     </section>

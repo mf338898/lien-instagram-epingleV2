@@ -1,13 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Linkedin } from "lucide-react";
+import { useJestimonlineModal } from "@/contexts/JestimonlineModalContext";
 
-const FOOTER_LINKS: { label: string; href: string }[] = [
+const FOOTER_LINKS: { label: string; href: string | null }[] = [
   { label: "Accueil", href: "#hero" },
   { label: "La Méthode", href: "#roadmap" },
   { label: "Honoraires", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
-  { label: "Estimation", href: "#estimation" },
+  { label: "Estimation", href: null },
   { label: "Mon Univers", href: "#about" },
 ];
 
@@ -17,6 +20,8 @@ const SOCIAL_ICONS = [
 ];
 
 export function Footer() {
+  const { openModal } = useJestimonlineModal();
+
   return (
     <footer className="flex flex-col items-center border-t border-slate-200 bg-white px-4 py-16 md:py-20">
       <p className="text-center text-xl font-bold text-slate-900 md:text-2xl">
@@ -51,12 +56,22 @@ export function Footer() {
         <ul className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
           {FOOTER_LINKS.map(({ label, href }) => (
             <li key={label}>
-              <Link
-                href={href}
-                className="text-sm text-slate-500 transition-colors hover:text-slate-900"
-              >
-                {label}
-              </Link>
+              {href ? (
+                <Link
+                  href={href}
+                  className="text-sm text-slate-500 transition-colors hover:text-slate-900"
+                >
+                  {label}
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  onClick={openModal}
+                  className="text-sm text-slate-500 transition-colors hover:text-slate-900"
+                >
+                  {label}
+                </button>
+              )}
             </li>
           ))}
         </ul>

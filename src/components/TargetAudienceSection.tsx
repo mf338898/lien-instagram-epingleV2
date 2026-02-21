@@ -1,5 +1,7 @@
-import Link from "next/link";
+"use client";
+
 import { Check, X } from "lucide-react";
+import { useJestimonlineModal } from "@/contexts/JestimonlineModalContext";
 
 const FOR_YOU_ITEMS = [
   "Vous vendez un bien en Finistère (Pleyben/Brest) et visez une transaction sécurisée au juste prix du marché.",
@@ -10,6 +12,8 @@ const FOR_YOU_ITEMS = [
 ] as const;
 
 export function TargetAudienceSection() {
+  const { openModal } = useJestimonlineModal();
+
   return (
     <section
       id="target-audience"
@@ -58,12 +62,13 @@ export function TargetAudienceSection() {
             </span>
           </div>
           <div className="mt-10 flex justify-center">
-            <Link
-              href="#estimation"
+            <button
+              type="button"
+              onClick={openModal}
               className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-8 py-4 font-medium text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-slate-800 hover:shadow-xl"
             >
               Discuter de mon projet (Offert)
-            </Link>
+            </button>
           </div>
         </div>
       </div>

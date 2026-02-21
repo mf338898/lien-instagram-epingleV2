@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { useJestimonlineModal } from "@/contexts/JestimonlineModalContext";
 
 const PRICING_CARDS = [
   {
@@ -102,6 +105,8 @@ function FeatureItem({
 }
 
 export function PricingSection() {
+  const { openModal } = useJestimonlineModal();
+
   return (
     <section
       id="pricing"
@@ -152,19 +157,32 @@ export function PricingSection() {
                 <p className="mt-1 text-sm text-slate-400">
                   {card.priceSubtext}
                 </p>
-                <Link
-                  href={card.buttonHref}
-                  {...(card.buttonHref.startsWith("http")
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                  className={
-                    card.buttonStyle === "gradient"
-                      ? "mt-4 flex w-full justify-center rounded-lg bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] px-4 py-2.5 font-semibold text-white transition-opacity hover:opacity-90"
-                      : "mt-4 flex w-full justify-center rounded-lg border border-white px-4 py-2.5 font-semibold text-white transition-opacity hover:opacity-90"
-                  }
-                >
-                  {card.buttonText}
-                </Link>
+                {card.buttonHref.startsWith("http") ? (
+                  <Link
+                    href={card.buttonHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={
+                      card.buttonStyle === "gradient"
+                        ? "mt-4 flex w-full justify-center rounded-lg bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] px-4 py-2.5 font-semibold text-white transition-opacity hover:opacity-90"
+                        : "mt-4 flex w-full justify-center rounded-lg border border-white px-4 py-2.5 font-semibold text-white transition-opacity hover:opacity-90"
+                    }
+                  >
+                    {card.buttonText}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={openModal}
+                    className={
+                      card.buttonStyle === "gradient"
+                        ? "mt-4 flex w-full justify-center rounded-lg bg-gradient-to-r from-[#ff2d92] via-[#ff6b35] to-[#ffc837] px-4 py-2.5 font-semibold text-white transition-opacity hover:opacity-90"
+                        : "mt-4 flex w-full justify-center rounded-lg border border-white px-4 py-2.5 font-semibold text-white transition-opacity hover:opacity-90"
+                    }
+                  >
+                    {card.buttonText}
+                  </button>
+                )}
                 <ul className="mt-6 space-y-3" role="list">
                   {card.features.map((text, idx) => (
                     <FeatureItem
