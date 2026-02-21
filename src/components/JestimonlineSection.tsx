@@ -1,21 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import Script from "next/script";
 
 const JESTIM_CONTAINER_ID = "jst__est_11bS969998ccc10509Xy547671v7P111";
-const JESTIM_SCRIPT_URL =
-  "https://expert.jestimo.com/widget-jwt/11bS969998ccc10509Xy547671v7P111";
 
 export function JestimonlineSection() {
-  useEffect(() => {
-    if (document.querySelector(`script[src="${JESTIM_SCRIPT_URL}"]`)) return;
-
-    const script = document.createElement("script");
-    script.src = JESTIM_SCRIPT_URL;
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <section
       id="estimation"
@@ -35,7 +24,11 @@ export function JestimonlineSection() {
         <div className="mt-12 flex justify-center">
           <div
             id={JESTIM_CONTAINER_ID}
-            className="min-h-[500px] w-full max-w-2xl"
+            className="min-h-[500px] h-[500px] w-full max-w-2xl"
+          />
+          <Script
+            src="https://expert.jestimo.com/widget-jwt/11bS969998ccc10509Xy547671v7P111"
+            strategy="afterInteractive"
           />
         </div>
       </div>
