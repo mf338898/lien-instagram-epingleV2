@@ -80,9 +80,9 @@ export function RoadmapSection() {
   return (
     <section
       id="roadmap"
-      className="relative overflow-hidden bg-slate-50 px-4 py-20 md:px-6 lg:px-8 lg:py-28"
+      className="relative bg-slate-50 px-4 py-20 md:px-6 lg:px-8 lg:py-28"
     >
-      <div className="relative mx-auto max-w-3xl">
+      <div className="relative mx-auto max-w-5xl">
         <header className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl xl:text-5xl">
             Vendez votre bien en{" "}
@@ -94,51 +94,69 @@ export function RoadmapSection() {
           </p>
         </header>
 
-        <div className="relative mt-12 flex flex-col gap-8 xl:mt-16">
+        <div className="relative mt-12 flex flex-col gap-y-24 xl:mt-16">
           {steps.map((step, index) => {
+            const isEven = index % 2 === 0;
             const classes = colorClasses[step.color];
 
             return (
-              <div key={step.badge} className="flex flex-col items-center">
-                <div className="relative w-full max-w-2xl overflow-visible rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:gap-6">
-                    <div className="mb-4 flex h-16 w-16 shrink-0 items-center justify-center sm:mb-0">
+              <div
+                key={step.badge}
+                className={`flex w-full relative ${isEven ? "justify-start" : "justify-end"}`}
+              >
+                <div className="relative w-full max-w-[500px]">
+                  <div className="relative z-10 w-full rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md">
+                    <div
+                      className={`absolute z-20 h-20 w-20 -top-6 sm:h-24 sm:w-24 sm:-top-8 md:h-28 md:w-28 md:-top-10 ${
+                        isEven
+                          ? "right-0 sm:-right-4 md:-right-10"
+                          : "left-0 sm:-left-4 md:-left-10"
+                      }`}
+                      aria-hidden
+                    >
                       <Image
                         src={step.image}
                         alt=""
-                        width={64}
-                        height={64}
-                        className="h-16 w-16 object-contain"
+                        width={112}
+                        height={112}
+                        className="h-full w-full object-contain"
                       />
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <span
-                        className={`inline-block rounded-full border px-3 py-1 text-sm font-medium ${classes.bg} ${classes.text}`}
-                      >
-                        {step.badge}
-                      </span>
-                      <h3 className="mt-4 text-xl font-semibold text-slate-900 sm:text-2xl">
-                        {step.title}
-                      </h3>
-                      <p className="mt-2 text-slate-600 sm:text-base">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
 
-                {index < steps.length - 1 && (
-                  <div className="flex justify-center py-4">
+                    <span
+                      className={`inline-block rounded-full border px-3 py-1 text-sm font-medium ${classes.bg} ${classes.text}`}
+                    >
+                      {step.badge}
+                    </span>
+
+                    <h3
+                      className={`mt-4 text-xl font-semibold text-slate-900 sm:text-2xl ${isEven ? "pr-24" : "pl-24"}`}
+                    >
+                      {step.title}
+                    </h3>
+
+                    <p className="mt-2 text-slate-600 sm:text-base">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {index < steps.length - 1 && (
                     <Image
                       src={`/arrow-${index + 1}.svg`}
                       alt=""
-                      width={48}
-                      height={48}
-                      className="h-12 w-12 object-contain text-slate-300"
+                      width={192}
+                      height={160}
+                      className={`absolute z-20 -bottom-16 left-1/2 h-auto w-24 -translate-x-1/2 object-contain
+                        xl:translate-x-0 xl:w-56
+                        ${index === 0 ? "xl:left-[508px] xl:top-[155px]" : ""}
+                        ${index === 1 ? "xl:left-[-200px] xl:top-[186px] xl:scale-x-[-1]" : ""}
+                        ${index === 2 ? "xl:left-[506px] xl:top-[164px] xl:scale-x-[-1]" : ""}
+                        ${index === 3 ? "xl:left-[-197px] xl:top-[107px] xl:scale-x-[-1] xl:rotate-[360deg]" : ""}
+                      `}
                       aria-hidden
                     />
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             );
           })}
